@@ -7,29 +7,59 @@ export interface SlideConfig {
 
 export const slides: SlideConfig[] = [
   {
-    id: "slide-1",
-    beforeImage: "/assets/slides/slide1-before.jpg",
-    afterImage: "/assets/slides/slide1-after.jpg",
+    id: "barmina",
+    beforeImage: "/assets/slides/slide1-before.webp",
+    afterImage: "/assets/slides/slide1-after.webp",
     caption: "Чистота — это моё боброе дело!",
   },
   {
-    id: "slide-3",
-    beforeImage: "/assets/slides/slide3-before.jpg",
-    afterImage: "/assets/slides/slide3-after.jpg",
+    id: "sinicyna",
+    beforeImage: "/assets/slides/slide2-before.webp",
+    afterImage: "/assets/slides/slide2-after.webp",
+    caption: "Бобёр за чистоту — зуб даю!",
+  },
+  {
+    id: "bossert",
+    beforeImage: "/assets/slides/slide3-before.webp",
+    afterImage: "/assets/slides/slide3-after.webp",
     caption: "Грызём беспорядок на корню!",
   },
   {
-    id: "slide-4",
-    beforeImage: "/assets/slides/slide4-before.jpg",
-    afterImage: "/assets/slides/slide4-after.jpg",
+    id: "lebedeva",
+    beforeImage: "/assets/slides/slide4-before.webp",
+    afterImage: "/assets/slides/slide4-after.webp",
     caption: "Бобры не терпят бардак!",
   },
   {
-    id: "slide-5",
-    beforeImage: "/assets/slides/slide5-before.jpg",
-    afterImage: "/assets/slides/slide5-after.jpg",
+    id: "smolyaninova",
+    beforeImage: "/assets/slides/slide5-before.webp",
+    afterImage: "/assets/slides/slide5-after.webp",
     caption: "Порядок — наша плотина!",
   },
+  // {
+  //   id: "gizatullin",
+  //   beforeImage: "/assets/slides/slide6-before.webp",
+  //   afterImage: "/assets/slides/slide6-after.webp",
+  //   caption: "Навёл порядок — спи спокойно!",
+  // },
+  // {
+  //   id: "li",
+  //   beforeImage: "/assets/slides/slide7-before.webp",
+  //   afterImage: "/assets/slides/slide7-after.webp",
+  //   caption: "Бобёр убрался — красота!",
+  // },
+  {
+    id: "belonosov",
+    beforeImage: "/assets/slides/slide8-before.webp",
+    afterImage: "/assets/slides/slide8-after.webp",
+    caption: "Чисто там, где бобёр прошёл!",
+  },
+  // {
+  //   id: "pravkin",
+  //   beforeImage: "/assets/slides/slide9-before.webp",
+  //   afterImage: "/assets/slides/slide9-after.webp",
+  //   caption: "Бобёр не бросит стол в беде!",
+  // },
 ];
 
 export const titleSlide = {

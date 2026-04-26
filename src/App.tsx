@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ScaledContainer from "./components/ScaledContainer";
 import TitleSlide from "./components/TitleSlide";
@@ -36,6 +36,16 @@ export default function App() {
   const [slideIndex, setSlideIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
+
+  // Предзагрузка всех изображений слайдов при монтировании
+  useEffect(() => {
+    slides.forEach((slide) => {
+      const before = new Image();
+      before.src = slide.beforeImage;
+      const after = new Image();
+      after.src = slide.afterImage;
+    });
+  }, []);
 
   const handleStart = () => {
     setDirection(1);
