@@ -191,8 +191,8 @@ export default function TitleSlide({ onStart }: TitleSlideProps) {
 
         <motion.button
           onClick={onStart}
-          className="bg-[#ffdc00] text-white font-bold text-[24px] rounded-full font-['Inter',sans-serif] cursor-pointer whitespace-nowrap hover:brightness-110 transition-all border-none flex items-center justify-center"
-          style={{ width: 239, padding: "16px 24px" }}
+          className="bg-[#e6c600] text-white font-bold text-[32px] rounded-full font-['Inter',sans-serif] cursor-pointer whitespace-nowrap hover:brightness-90 transition-all border-none flex items-center justify-center"
+          style={{ width: 300, padding: "22px 36px" }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.7 }}

@@ -17,7 +17,7 @@ export default function ScaledContainer({ children }: ScaledContainerProps) {
       const w = window.innerWidth;
       const h = window.innerHeight;
       setIsPortrait(h > w);
-      // cover: всегда заполняем экран, обрезая по меньшей стороне
+      // cover: заполняем экран без полей
       setScale(Math.max(w / DESIGN_W, h / DESIGN_H));
     };
 
