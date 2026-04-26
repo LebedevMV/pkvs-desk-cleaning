@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ScaledContainer from "./components/ScaledContainer";
 import TitleSlide from "./components/TitleSlide";
@@ -29,10 +29,13 @@ const pageTransition = {
   duration: 0.6,
 };
 
+const SWIPE_THRESHOLD = 50;
+
 export default function App() {
   const [screen, setScreen] = useState<Screen>("title");
   const [slideIndex, setSlideIndex] = useState(0);
   const [direction, setDirection] = useState(1);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
   const handleStart = () => {
     setDirection(1);
@@ -40,25 +43,35 @@ export default function App() {
     setScreen("slides");
   };
 
-  const handlePrev = () => {
-    if (slideIndex === 0) {
+  const handlePrev = useCallback(() => {
+    if (screen === "end") {
       setDirection(-1);
-      setScreen("title");
-    } else {
-      setDirection(-1);
-      setSlideIndex((i) => i - 1);
+      setSlideIndex(slides.length - 1);
+      setScreen("slides");
+    } else if (screen === "slides") {
+      if (slideIndex === 0) {
+        setDirection(-1);
+        setScreen("title");
+      } else {
+        setDirection(-1);
+        setSlideIndex((i) => i - 1);
+      }
     }
-  };
+  }, [screen, slideIndex]);
 
-  const handleNext = () => {
-    if (slideIndex === slides.length - 1) {
-      setDirection(1);
-      setScreen("end");
-    } else {
-      setDirection(1);
-      setSlideIndex((i) => i + 1);
+  const handleNext = useCallback(() => {
+    if (screen === "title") {
+      handleStart();
+    } else if (screen === "slides") {
+      if (slideIndex === slides.length - 1) {
+        setDirection(1);
+        setScreen("end");
+      } else {
+        setDirection(1);
+        setSlideIndex((i) => i + 1);
+      }
     }
-  };
+  }, [screen, slideIndex]);
 
   const handleRestart = () => {
     setDirection(1);
@@ -66,9 +79,29 @@ export default function App() {
     setScreen("title");
   };
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStart.current) return;
+    const dx = e.changedTouches[0].clientX - touchStart.current.x;
+    const dy = e.changedTouches[0].clientY - touchStart.current.y;
+    touchStart.current = null;
+    if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dy) > Math.abs(dx)) return;
+    if (dx < 0) handleNext();
+    else handlePrev();
+  };
+
+  const bgColor = screen === "slides" ? "#ffffff" : "#a0cd45";
+
   return (
-    <div className="w-full h-full relative overflow-hidden bg-white">
-      <ScaledContainer>
+    <div
+      className="w-full h-full relative overflow-hidden"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      <ScaledContainer bgColor={bgColor}>
         <AnimatePresence mode="wait" custom={direction}>
           {screen === "title" && (
             <motion.div

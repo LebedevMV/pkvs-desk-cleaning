@@ -43,7 +43,7 @@ function useSubheadingAnimation(startDelay = 1200, typeSpeed = 45) {
 
   useEffect(() => {
     if (phase !== "pause") return;
-    const timeout = setTimeout(() => setPhase("striking"), 500);
+    const timeout = setTimeout(() => setPhase("striking"), 1000);
     return () => clearTimeout(timeout);
   }, [phase]);
 
@@ -73,7 +73,7 @@ function useSubheadingAnimation(startDelay = 1200, typeSpeed = 45) {
         clearInterval(timer);
         setPhase("done");
       }
-    }, typeSpeed * 3);
+    }, typeSpeed * 5);
     return () => clearInterval(timer);
   }, [phase, typeSpeed]);
 
@@ -140,7 +140,7 @@ export default function TitleSlide({ onStart }: TitleSlideProps) {
         <motion.img
           src="/assets/logos/pkvs-logo.svg"
           alt="PKVS"
-          style={{ width: 206, height: 238 }}
+          style={{ width: 160, height: 185 }}
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -148,7 +148,7 @@ export default function TitleSlide({ onStart }: TitleSlideProps) {
         <motion.img
           src="/assets/logos/bbr-logo.svg"
           alt="BBR"
-          style={{ width: 239, height: 236 }}
+          style={{ width: 185, height: 183 }}
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
@@ -190,14 +190,14 @@ export default function TitleSlide({ onStart }: TitleSlideProps) {
         </p>
 
         <motion.button
-          onClick={onStart}
+          onClick={phase === "done" ? onStart : undefined}
           className="bg-[#e6c600] text-white font-bold text-[32px] rounded-full font-['Inter',sans-serif] cursor-pointer whitespace-nowrap hover:brightness-90 transition-all border-none flex items-center justify-center"
-          style={{ width: 300, padding: "22px 36px" }}
+          style={{ width: 300, padding: "22px 36px", visibility: phase === "done" ? "visible" : "hidden" }}
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.7 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          animate={phase === "done" ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          whileHover={phase === "done" ? { scale: 1.05 } : undefined}
+          whileTap={phase === "done" ? { scale: 0.95 } : undefined}
         >
           {titleSlide.buttonText}
         </motion.button>

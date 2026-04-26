@@ -13,7 +13,7 @@ export default function EndSlide({ onRestart }: EndSlideProps) {
         <motion.img
           src="/assets/logos/pkvs-logo.svg"
           alt="PKVS"
-          style={{ width: 206, height: 238 }}
+          style={{ width: 160, height: 185 }}
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -21,7 +21,7 @@ export default function EndSlide({ onRestart }: EndSlideProps) {
         <motion.img
           src="/assets/logos/bbr-logo.svg"
           alt="BBR"
-          style={{ width: 239, height: 236 }}
+          style={{ width: 185, height: 183 }}
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}

@@ -5,11 +5,13 @@ const DESIGN_H = 1080;
 
 interface ScaledContainerProps {
   children: ReactNode;
+  bgColor?: string;
 }
 
-export default function ScaledContainer({ children }: ScaledContainerProps) {
+export default function ScaledContainer({ children, bgColor = "#a0cd45" }: ScaledContainerProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
+  const [contentScale, setContentScale] = useState(1);
   const [isPortrait, setIsPortrait] = useState(false);
 
   useEffect(() => {
@@ -17,8 +19,17 @@ export default function ScaledContainer({ children }: ScaledContainerProps) {
       const w = window.innerWidth;
       const h = window.innerHeight;
       setIsPortrait(h > w);
-      // cover: заполняем экран без полей
-      setScale(Math.max(w / DESIGN_W, h / DESIGN_H));
+      const isMobile = w < 1024;
+      // всегда cover — заполняем по ширине
+      const s = Math.max(w / DESIGN_W, h / DESIGN_H);
+      setScale(s);
+      // на мобилке: если контент обрезается по высоте, сжимаем его
+      if (isMobile) {
+        const visibleH = h / s;
+        setContentScale(Math.min(1, visibleH / DESIGN_H));
+      } else {
+        setContentScale(1);
+      }
     };
 
     update();
@@ -57,6 +68,8 @@ export default function ScaledContainer({ children }: ScaledContainerProps) {
         position: "fixed",
         inset: 0,
         overflow: "hidden",
+        backgroundColor: bgColor,
+        transition: "background-color 0.6s ease-in-out",
       }}
     >
       <div
@@ -70,7 +83,16 @@ export default function ScaledContainer({ children }: ScaledContainerProps) {
           transformOrigin: "center center",
         }}
       >
-        {children}
+        <div
+          style={{
+            width: DESIGN_W,
+            height: DESIGN_H,
+            transform: contentScale < 1 ? `scale(${contentScale})` : undefined,
+            transformOrigin: "center center",
+          }}
+        >
+          {children}
+        </div>
       </div>
     </div>
   );
