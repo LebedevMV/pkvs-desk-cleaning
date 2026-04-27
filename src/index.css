@@ -2,23 +2,26 @@
 
 @font-face {
   font-family: 'Gill Sans';
-  src: local('Gill Sans'), local('GillSans'), local('Gill Sans MT');
+  src: url('/assets/fonts/GillSans-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Gill Sans';
-  src: local('Gill Sans SemiBold'), local('GillSans-SemiBold'), local('Gill Sans MT SemiBold');
+  src: url('/assets/fonts/GillSans-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Gill Sans';
-  src: local('Gill Sans Bold'), local('GillSans-Bold'), local('Gill Sans MT Bold');
+  src: url('/assets/fonts/GillSans-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 * {

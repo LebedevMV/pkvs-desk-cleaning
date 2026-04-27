@@ -100,11 +100,11 @@ export default function ComparisonSlide({
       </div>
 
       {/* Bottom row: caption + navigation */}
-      <div className="flex justify-between items-end flex-1">
+      <div className="flex justify-between items-end flex-1" style={{ gap: 40 }}>
         {/* Caption — typewriter */}
         <p
-          className="font-['Gill_Sans','Gill_Sans_MT',sans-serif] font-semibold text-[#a0cd45] whitespace-nowrap m-0"
-          style={{ fontSize: 64, lineHeight: 1, marginLeft: -4 }}
+          className="font-['Gill_Sans','Gill_Sans_MT',sans-serif] font-semibold text-[#a0cd45] m-0 overflow-hidden text-ellipsis whitespace-nowrap"
+          style={{ fontSize: 64, lineHeight: 1, marginLeft: -4, flex: "1 1 0", minWidth: 0 }}
         >
           {typedCaption}
           <span
