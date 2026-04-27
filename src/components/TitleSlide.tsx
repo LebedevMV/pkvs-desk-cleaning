@@ -140,7 +140,7 @@ export default function TitleSlide({ onStart }: TitleSlideProps) {
         <motion.img
           src="/assets/logos/pkvs-logo.svg"
           alt="PKVS"
-          style={{ width: 160, height: 185 }}
+          style={{ width: 206, height: 238 }}
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -148,7 +148,7 @@ export default function TitleSlide({ onStart }: TitleSlideProps) {
         <motion.img
           src="/assets/logos/bbr-logo.svg"
           alt="BBR"
-          style={{ width: 185, height: 183 }}
+          style={{ width: 239, height: 236 }}
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
@@ -191,8 +191,8 @@ export default function TitleSlide({ onStart }: TitleSlideProps) {
 
         <motion.button
           onClick={phase === "done" ? onStart : undefined}
-          className="bg-[#e6c600] text-white font-bold text-[32px] rounded-full font-['Inter',sans-serif] cursor-pointer whitespace-nowrap hover:brightness-90 transition-all border-none flex items-center justify-center"
-          style={{ width: 300, padding: "22px 36px", visibility: phase === "done" ? "visible" : "hidden" }}
+          className="bg-[#ffdc00] text-white font-bold text-[24px] rounded-full font-['Inter',sans-serif] cursor-pointer whitespace-nowrap hover:brightness-110 transition-all border-none flex items-center justify-center"
+          style={{ width: 239, padding: "16px 24px", visibility: phase === "done" ? "visible" : "hidden" }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={phase === "done" ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.5, ease: "easeOut" }}

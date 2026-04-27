@@ -19,17 +19,10 @@ export default function ScaledContainer({ children, bgColor = "#a0cd45" }: Scale
       const w = window.innerWidth;
       const h = window.innerHeight;
       setIsPortrait(h > w);
-      const isMobile = w < 1024;
-      // всегда cover — заполняем по ширине
-      const s = Math.max(w / DESIGN_W, h / DESIGN_H);
+      // contain: вмещаем целиком, сохраняя пропорции
+      const s = Math.min(w / DESIGN_W, h / DESIGN_H);
       setScale(s);
-      // на мобилке: если контент обрезается по высоте, сжимаем его
-      if (isMobile) {
-        const visibleH = h / s;
-        setContentScale(Math.min(1, visibleH / DESIGN_H));
-      } else {
-        setContentScale(1);
-      }
+      setContentScale(1);
     };
 
     update();

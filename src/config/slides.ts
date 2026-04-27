@@ -22,44 +22,50 @@ export const slides: SlideConfig[] = [
     id: "bossert",
     beforeImage: "/assets/slides/slide3-before.webp",
     afterImage: "/assets/slides/slide3-after.webp",
-    caption: "Грызём беспорядок на корню!",
+    caption: "Бобёр не просто грызёт — он чистоту бережёт!",
   },
   {
     id: "lebedeva",
     beforeImage: "/assets/slides/slide4-before.webp",
     afterImage: "/assets/slides/slide4-after.webp",
-    caption: "Бобры не терпят бардак!",
+    caption: "Чистота по-бобровски — всё сгрыз лишнее",
   },
   {
     id: "smolyaninova",
     beforeImage: "/assets/slides/slide5-before.webp",
     afterImage: "/assets/slides/slide5-after.webp",
-    caption: "Порядок — наша плотина!",
+    caption: "Там, где трудится бобёр — исчезает сразу сор",
   },
-  // {
-  //   id: "gizatullin",
-  //   beforeImage: "/assets/slides/slide6-before.webp",
-  //   afterImage: "/assets/slides/slide6-after.webp",
-  //   caption: "Навёл порядок — спи спокойно!",
-  // },
-  // {
-  //   id: "li",
-  //   beforeImage: "/assets/slides/slide7-before.webp",
-  //   afterImage: "/assets/slides/slide7-after.webp",
-  //   caption: "Бобёр убрался — красота!",
-  // },
+  {
+    id: "gizatullin",
+    beforeImage: "/assets/slides/slide6-before.webp",
+    afterImage: "/assets/slides/slide6-after.webp",
+    caption: "Обобрено",
+  },
+  {
+    id: "li",
+    beforeImage: "/assets/slides/slide7-before.webp",
+    afterImage: "/assets/slides/slide7-after.webp",
+    caption: "Чистота — дело боброе",
+  },
   {
     id: "belonosov",
     beforeImage: "/assets/slides/slide8-before.webp",
     afterImage: "/assets/slides/slide8-after.webp",
-    caption: "Чисто там, где бобёр прошёл!",
+    caption: "Будет чисто до утра, если в деле два бобра",
   },
-  // {
-  //   id: "pravkin",
-  //   beforeImage: "/assets/slides/slide9-before.webp",
-  //   afterImage: "/assets/slides/slide9-after.webp",
-  //   caption: "Бобёр не бросит стол в беде!",
-  // },
+  {
+    id: "pravkin",
+    beforeImage: "/assets/slides/slide9-before.webp",
+    afterImage: "/assets/slides/slide9-after.webp",
+    caption: "Полный бобрядок :)",
+  },
+  {
+    id: "basistiy",
+    beforeImage: "/assets/slides/slide10-before.webp",
+    afterImage: "/assets/slides/slide10-after.webp",
+    caption: "Грызём беспорядок на корню!",
+  },
 ];
 
 export const titleSlide = {
